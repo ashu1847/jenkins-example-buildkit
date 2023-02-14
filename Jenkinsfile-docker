@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('cleanup') {
       steps {
-        sh 'docker system prune --all --volumes --force'
+        sh 'docker images'
       }
     }
     stage('build') {
