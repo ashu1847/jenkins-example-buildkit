@@ -6,27 +6,27 @@ pipeline {
   stages {
     stage('cleanup') {
       steps {
-        sh 'docker system prune --all --volumes --force'
+        sh 'sudo docker images'
       }
     }
     stage('build') {
       steps {
-        sh 'time docker build --progress=plain -t darinpope/my-app:0.0.1 -f Dockerfile-first .'
+        sh 'sudo time docker build --progress=plain -t darinpope/my-app:0.0.1 -f Dockerfile-first .'
       }
     }
     stage('images') {
       steps {
-        sh 'docker images'
+        sh ' sudo docker images'
       }
     }
     stage('build again') {
       steps {
-        sh 'time docker build --progress=plain -t darinpope/my-app:0.0.2 -f Dockerfile-second .'
+        sh 'sudo time docker build --progress=plain -t darinpope/my-app:0.0.2 -f Dockerfile-second .'
       }
     }
     stage('images again') {
       steps {
-        sh 'docker images'
+        sh ' sudo docker images'
       }
     }
   }
